@@ -16,10 +16,10 @@ fn get_bun_releases() !void {
     _ = try client.fetch(.{
         .method = .GET,
         .location = .{
-            .url = "https://github.com/oven-sh/bun/releases"
+            .url = "https://api.github.com/repos/oven-sh/bun/releases"
         },
         .server_header_buffer = undefined,
-        .response_storage = .{ .dynamic =  &body }
+        .response_storage = .{ .dynamic = &body }
     });
 
     print("Response: {s}\n", .{body.items});
